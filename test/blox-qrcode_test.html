@@ -19,30 +19,15 @@
       </template>
     </test-fixture>
 
-    <test-fixture id="ChangedPropertyTestFixture">
-      <template>
-        <blox-qrcode prop1="new-prop1"></blox-qrcode>
-      </template>
-    </test-fixture>
+
 
     <script type="module">
       suite('blox-qrcode', () => {
 
-        test('instantiating the element with default properties works', () => {
+        test('Returns the corect qr code for the given data', () => {
           const element = fixture('BasicTestFixture');
-          assert.equal(element.prop1, 'blox-qrcode');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello blox-qrcode!');
-        });
-
-        test('setting a property on the element works', () => {
-          // Create a test fixture
-          const element = fixture('ChangedPropertyTestFixture');
-          assert.equal(element.prop1, 'new-prop1');
-          const elementShadowRoot = element.shadowRoot;
-          const elementHeader = elementShadowRoot.querySelector('h2');
-          assert.equal(elementHeader.innerHTML, 'Hello new-prop1!');
+          element.setAttribute('data', 'test qr code')
+          assert.equal(element.src, 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0CAYAAABUmhYnAAAEvUlEQVR4Xu2d245iMQwEh///aFbaNw4SpVbHBxLVvjoXp8t2Lgzs4/l8Pv/8d4wCD4Eew/L/QgR6Fk+BHsZToAI9TYHD1uMeKtDDFDhsOWaoQA9T4LDlmKECPUyBw5Zjhgr0MAUOW44ZKtDDFDhsOXWGPh6PWyWhj2/JH+p/XQyNt3rxqX9v/rafh/7agsmfVDAaT6ClAgSEAFB/M9SSW4boa/c04MZLbusQZch1/GtGpnaiQeNTf7KvHn/5oUighPDVLtDLHymSIGQn+dv+d49vhoLiAoUMooht98DVAGg8OlVf19uuj/Qbz9C7F0wASJD2UEbjC/RyLaJDl0BJoXKPMUM/3zOXB+Dqpz8qKdMlqQ0gSy6UxFbgNILb+QQqUCo6L3aqYOUO2H8VgjKozRganzKK1CYBaf6710fr2f7aQoJSRrT3RJq/HZ8A3v44P71gGl+gYUh8uyQJ9PLYv/u1RaA3Aw0T/q05VYB0/HS8tP20PzT++KGIHCD7akHT8dL2tB46ldOpm8YXKPwIjEAX/0rOakHT8dL2lEHbZWi6oLQ9XUOm7am/afufK7npAtL208Bo/NTftL1Aw7dkAkb2FFDaXqACfYmZ+pSbRuB0++lDzLT/7fgCbRX8sf4C/TEgrTsCbRX8sf41UNqzpu2kZzt/O/70Q8Lb+Hd/2kLXgtTeCk7A2/EFGn53pRVcoBcFSZBpu0BfFbh9DyUAV3v6cjIdQOkH6lRy2/V+fQ8V6OcfGUkDWKCLnwrTDGsznBLCkhsewlogbf/bgdKE6bUk3RNp/jajyP90/tQfGn95htKEJEhrp/lTAacDKvWH1ifQ8m+KqIQSAIGWX/lPBTRDw5BsSyz1D935o2sDZWTan9qn/t9ecilD0owQ6PBLURpRBKS1t/6sfumhgE39HX9YSB1qgVH/1h+BgoIEYLWdgLR7WLqnpu3TgLx9D10NLC1haXsSNAWUtqf5v15yBbrZ4zxFlEB/HCgBnLanJYxKLtlpT6ZrGfWv9/T2b4qmgdH4Al18DyXBp+0CFeiLAumeTiVz+5JLGbI6Q2mPmd4D0/VSwKQBQHrefg8lh8gu0M8KCRT+m5I0wyjjKMMpYCngBSrQy6kq/MVpijA6dFAET2dA6n+7nnS+5RlKgscOhgEj0JJAeqoU6OvTXyn/m5xmaBphZfvxBGif/shBKoHpqZBOnWQnHmnG0PrIn3Q+8n88Q2nBAn0So8gu0ItcacZQwJqh5XdNSEAKd4GG3+ZKBaU9msajDJou+cfdQ6cFFejloWf3U65ABfoxBmgPTu2W3MWHIhKUMpwA3r0Hk7/HX1sESiFwsdMpdPpQRPMLVKAvClhyv/yfCFDGkp3imfq3dpqf7ON7KDlAdhKISiplWPsylI6frof0eVv/9D00dSgFlLZvBaX+rb3WS6DZpx0tMOr/c0Bbh6h/W+LS8al9CohO/ekWMF5ySYDWLtDPCi4/FLXAqL9ABUox8vHeSZ2PK7m0YO33KlCX3HvddTZSQKCk0GZ2gW4GjNwVKCm0mV2gmwEjdwVKCm1mF+hmwMhdgZJCm9kFuhkwclegpNBmdoFuBozcFSgptJldoJsBI3cFSgptZhfoZsDI3X9SFp8O/w8v0gAAAABJRU5ErkJggg==');
         });
 
       });
